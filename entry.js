@@ -3,6 +3,8 @@
 type ObjectTypes = {
   exists: string;
   sometimesExists?: string;
+
+  // If any other keys exist, they should follow this pattern:
   [field: string]: {
     some: number;
   };
