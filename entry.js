@@ -8,7 +8,7 @@ type ObjectTypes = {
   };
 };
 
-const test1 = (): ObjectTypes => {
+const passes_flow1 = (): ObjectTypes => {
   return {
     exists: 'some string',
     other: {
@@ -17,20 +17,20 @@ const test1 = (): ObjectTypes => {
   };
 };
 
-const test2 = (): ObjectTypes => {
+const passes_flow2 = (): ObjectTypes => {
   return {
     exists: 'some string',
   };
 };
 
-const test3 = (): ObjectTypes => {
+const passes_flow3 = (): ObjectTypes => {
   return {
     exists: 'some string',
     sometimesExists: 'other string',
   };
 };
 
-const test4 = (): ObjectTypes => {
+const passes_flow4 = (): ObjectTypes => {
   return {
     exists: 'some string',
     sometimesExists: 'other string',
@@ -40,7 +40,18 @@ const test4 = (): ObjectTypes => {
   };
 };
 
-console.log(test1());
-console.log(test2());
-console.log(test3());
-console.log(test4());
+const fails_flow1 = (): ObjectTypes => {
+  return {
+    exists: 'some string',
+    sometimesExists: 'other string',
+    other: {
+      some: 'should be a number',
+    },
+  };
+};
+
+console.log(passes_flow1());
+console.log(passes_flow2());
+console.log(passes_flow3());
+console.log(passes_flow4());
+console.log(fails_flow1());
